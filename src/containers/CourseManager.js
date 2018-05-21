@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import CourseCard from '../components/CourseCard'
 import ModuleList from './ModuleList'
 import LessonTabs from './LessonTabs'
 import CourseEditor from './CourseEditor'
@@ -14,11 +13,11 @@ export default class CourseManager
         <div className="container-fluid">
           <h1>Course Manager</h1>
 
-          <Route path="/courses"
-                 component={CourseList}>
+          <Route path="/"
+                 exact component={CourseList}>
           </Route>
           <Route path="/course/:courseId"
-                 component={CourseEditor}>
+                exact component={CourseEditor}>
           </Route>
         </div>
       </Router>
