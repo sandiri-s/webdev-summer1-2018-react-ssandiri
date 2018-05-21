@@ -1,5 +1,5 @@
 const MODULE_API_URL =
-  'http://localhost:8080/api/course/CID/module';
+  'https://course-mngmnt-webdev-ssandiri.herokuapp.com/api/course/CID/module';
 
 let _singleton = Symbol();
 export default class ModuleService {
