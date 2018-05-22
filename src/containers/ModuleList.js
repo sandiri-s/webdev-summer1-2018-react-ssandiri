@@ -1,7 +1,8 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 import ModuleListItem from '../components/ModuleListItem';
 import ModuleService from '../services/ModuleService';
-import CourseService from '../services/CourseService'
+import CourseService from '../services/CourseService';
+
 
 export default class ModuleList extends Component {
   constructor(props) {
@@ -71,14 +72,27 @@ export default class ModuleList extends Component {
     return modules;
   }
   render() {
-    return (<div>
-      <h3>{this.state.courseTitle}</h3>
+    return (
+      <div>
+      <div className="row">
+
+        <div className ="col-1">
+
+            <i className="fa fa-times-circle fa-2x"></i>
+
+        </div>
+
+        <div className ="col-11">
+          <h5 id="course-title">{this.state.courseTitle}</h5>
+        </div>
+      </div>
+
       <input onChange={this.titleChanged} value={this.state.module.title} placeholder="title" className="form-control"/>
       <button onClick={this.createModule} className="btn btn-primary btn-block">
-        <i className="fa fa-plus"></i>
+        <i className="fa fa-plus "></i>
       </button>
       <br/>
-      <ul className="list-group">
+      <ul className="list-group" id="modules-list">
         {this.renderListOfModules()}
       </ul>
     </div>);
