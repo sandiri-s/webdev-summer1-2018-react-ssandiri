@@ -15,64 +15,69 @@ class CourseList extends React.Component {
   }
   findAllCourses() {
 
-    this.courseService
-      .findAllCourses()
-      .then((courses) => {
-        this.setState({courses: courses});
-      })
+    this.courseService.findAllCourses().then((courses) => {
+      this.setState({courses: courses});
+    })
   }
   renderCourseRows() {
     let courses = null;
-    if(this.state) {
-      courses = this.state.courses.map(
-        (course) => {
-          return (<CourseRow deleteFun = {this.deleteCourse} key={course.id}
-                            course={course}/>);
-        }
-      )
+    if (this.state) {
+      courses = this.state.courses.map((course) => {
+        return (<CourseRow deleteFun={this.deleteCourse} key={course.id} course={course}/>);
+      })
     }
-    return (
-      courses
-    )
+    return (courses)
   }
   titleChanged(event) {
     this.setState({
-      course: { title: event.target.value }
+      course: {
+        title: event.target.value
+      }
     });
   }
   createCourse() {
-    this.courseService
-      .createCourse(this.state.course)
-      .then(() => { this.findAllCourses(); });
+    this.courseService.createCourse(this.state.course).then(() => {
+      this.findAllCourses();
+    });
   }
 
-  deleteCourse(courseId){
-    this.courseService
-        .deleteCourse(courseId)
-        .then(() => {this.findAllCourses()})
+  deleteCourse(courseId) {
+    this.courseService.deleteCourse(courseId).then(() => {
+      this.findAllCourses()
+    })
   }
 
   render() {
     return (
       <div>
+        <nav className="navbar navbar-dark bg-primary">
+          <a className="navbar-brand" href="#">Course Manager</a>
+          <form className="form-inline">
+            <input onChange={this.titleChanged} id="titleFld" className="form-control mr-sm-2" type="search" placeholder="Enter the course title" aria-label="Search"/>
+            <button onClick={this.createCourse} className="btn btn-danger my-2 my-sm-0" type="button">Add</button>
+          </form>
+        </nav>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="container ">
+            <nav className="navbar col-12">
+                <div className="col-6">Title</div>
+                <div className="col-6">Last modified time</div>
+                <div className="col-2"></div>
+            </nav>
+        </div>
+    </div>
+</nav>
+
         <table className="table">
-          <thead>
-            <tr><th>Title</th></tr>
-            <tr>
-              <th><input onChange={this.titleChanged}
-                         className="form-control" id="titleFld"
-                         placeholder="cs101"/></th>
-              <th><button onClick={this.createCourse}
-                          className="btn btn-primary">
-                Add</button></th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.renderCourseRows()}
-          </tbody>
-        </table>
-      </div>
-    )
+                <tbody>
+                  {this.renderCourseRows()}
+                </tbody>
+              </table>
+
+            </div>
+
+            )
+    }
   }
-}
-export default CourseList;
+  export default CourseList;
