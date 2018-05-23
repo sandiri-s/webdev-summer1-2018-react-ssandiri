@@ -21,6 +21,8 @@ export default class ModuleList extends Component {
     this.setCourseId = this.setCourseId.bind(this);
     this.setCourseTitle = this.setCourseTitle.bind(this);
 
+    this.deleteModule = this.deleteModule.bind(this);
+
     this.courseService = CourseService.instance;
     this.moduleService = ModuleService.instance;
   }
@@ -65,9 +67,16 @@ export default class ModuleList extends Component {
       }
     });
   }
+
+  deleteModule(ModuleId,CourseId) {
+    this.moduleService.deleteModule(ModuleId).then(() => {
+      this.findAllModulesForCourse(CourseId)
+    })
+  }
+
   renderListOfModules() {
-    let modules = this.state.modules.map(function(module) {
-      return <ModuleListItem module={module} key={module.id}/>
+    let modules = this.state.modules.map((module) =>  {
+      return <ModuleListItem deleteFun={this.deleteModule} module={module} courseId ={this.props.courseId} key={module.id}/>
     });
     return modules;
   }
@@ -78,7 +87,7 @@ export default class ModuleList extends Component {
 
         <div className ="col-1">
 
-            <i className="fa fa-times-circle fa-2x"></i>
+            <i className="fa fa-chevron-circle-left fa-2x"></i>
 
         </div>
 
@@ -87,10 +96,15 @@ export default class ModuleList extends Component {
         </div>
       </div>
 
-      <input onChange={this.titleChanged} value={this.state.module.title} placeholder="title" className="form-control" />
-      <button onClick={this.createModule} className="btn btn-primary btn-block">
-        <i className="fa fa-plus "></i>
-      </button>
+      <div className="input-group mb-3">
+  <input onChange={this.titleChanged} value={this.state.module.title} placeholder="title" type="text" className="form-control"  aria-describedby="basic-addon2"/>
+  <div className="input-group-append">
+    <button onClick={this.createModule} className="btn btn-primary btn-block">
+      <i className="fa fa-plus "></i>
+    </button>
+  </div>
+</div>
+
       <br/>
       <ul className="list-group" id="modules-list">
         {this.renderListOfModules()}
