@@ -14,6 +14,10 @@ export default class ModuleEditor
     this.selectModule
     (this.props.match.params.moduleId);
   }
+  componentWillReceiveProps(newProps) {
+    this.selectModule
+    (newProps.match.params.moduleId);
+  }
 
   selectModule(moduleId) {
     this.setState({moduleId: moduleId});
