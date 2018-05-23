@@ -77,13 +77,13 @@ export default class LessonTabs extends Component {
     return (<div>
       <div className="row">
 
-        <div className="col-11">
-          <ul className="nav nav-pills">
+        <div className="col-8">
+          <ul className="nav nav-pills" id= "list-of-lessons">
             {this.renderListOfLessons()}
           </ul>
         </div>
 
-        <div className="col-5">
+        <div className="col-4">
           <div className="input-group mb-3">
             <input onChange={this.titleChanged} value={this.state.lesson.title} placeholder="title" type="text" className="form-control" aria-describedby="basic-addon2"/>
             <div className="input-group-append">

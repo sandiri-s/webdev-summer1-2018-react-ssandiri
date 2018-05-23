@@ -17,3 +17,18 @@
   // Again, this is where the magic happens
   -webkit-overflow-scrolling: touch;
 }
+
+#list-of-lessons {
+
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  overflow-x: auto;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+
+
+
+}

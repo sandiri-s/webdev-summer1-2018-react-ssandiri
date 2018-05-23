@@ -57,15 +57,13 @@ class CourseList extends React.Component {
             <button onClick={this.createCourse} className="btn btn-danger my-2 my-sm-0" type="button">Add</button>
           </form>
         </nav>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light  col-12">
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <div className="container ">
-            <nav className="navbar col-12">
-                <div className="col-6">Title</div>
-                <div className="col-6">Last modified time</div>
+
+                <div className="col-4">Title</div>
+                <div className="col-2">Owned by</div>
+                <div className="col-4">Last modified time</div>
                 <div className="col-2"></div>
-            </nav>
-        </div>
     </div>
 </nav>
 

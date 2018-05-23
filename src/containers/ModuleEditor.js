@@ -26,9 +26,8 @@ export default class ModuleEditor
   render() {
     return(
       <div>
-    <div className="row">
           <LessonTabs moduleId={this.state.moduleId}/>
-        </div>
+
         <div className="row">
           This is a Lesson Editor
             </div>
