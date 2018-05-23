@@ -18,20 +18,20 @@ class CourseRow extends React.Component {
       displayModified = lastModified;
     }
     return (
-      <tr className ="col-12">
+      <tr className ="">
 
-        <td className ="col-4">
+        <td className ="">
       <Link to={`/course/${this.props.course.id}`}>
       {this.props.course.title}
       </Link>
       </td>
-      <td className ="col-2">
+      <td className ="">
         me
       </td>
-      <td className ="col-4">
+      <td className ="">
         {displayModified}
       </td>
-      <td className ="col-2">
+      <td className ="">
       <button type="button" className="close" aria-label="Close" onClick ={this.deleteCourse}>
       <span aria-hidden="true">&times;</span>
       </button>
