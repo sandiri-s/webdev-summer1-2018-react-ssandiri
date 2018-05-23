@@ -1,5 +1,5 @@
 const LESSON_API_URL =
-  'https://course-mngmnt-webdev-ssandiri.herokuapp.com/api/lesson/MID/lesson';
+  'https://course-mngmnt-webdev-ssandiri.herokuapp.com/api/module/MID/lesson';
 
 const LESSON_BASE_URL =
   'https://course-mngmnt-webdev-ssandiri.herokuapp.com/api/lesson';
