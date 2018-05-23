@@ -3,13 +3,13 @@
   margin-top:0.5rem;
 }
 
-ul {
-
+#modules-list {
+  height:100vh;
   top: 20px;
   bottom: 20px;
   left: 20px;
   right: 20px;
-  overflow: scroll;
+  overflow: auto;
   margin: 0;
   padding: 0;
 

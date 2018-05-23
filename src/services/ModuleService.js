@@ -1,6 +1,9 @@
 const MODULE_API_URL =
   'https://course-mngmnt-webdev-ssandiri.herokuapp.com/api/course/CID/module';
 
+const MODULE_BASE_URL =
+  'https://course-mngmnt-webdev-ssandiri.herokuapp.com/api/module';
+
 let _singleton = Symbol();
 export default class ModuleService {
   constructor(singletonToken) {
@@ -17,6 +20,19 @@ export default class ModuleService {
       })
   }
 
+  findAllModules() {
+    return fetch(MODULE_API_URL)
+    .then(function(response){
+      return response.json();
+    });
+  }
+
+
+  deleteModule(ModuleId){
+    return fetch(MODULE_BASE_URL + '/' + ModuleId, {
+      method: 'delete'
+    });
+  }
   createModule(courseId, module) {
     return fetch(MODULE_API_URL.replace('CID', courseId),
       {

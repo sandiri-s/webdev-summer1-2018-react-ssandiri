@@ -87,7 +87,7 @@ export default class ModuleList extends Component {
         </div>
       </div>
 
-      <input onChange={this.titleChanged} value={this.state.module.title} placeholder="title" className="form-control"/>
+      <input onChange={this.titleChanged} value={this.state.module.title} placeholder="title" className="form-control" />
       <button onClick={this.createModule} className="btn btn-primary btn-block">
         <i className="fa fa-plus "></i>
       </button>
@@ -95,6 +95,7 @@ export default class ModuleList extends Component {
       <ul className="list-group" id="modules-list">
         {this.renderListOfModules()}
       </ul>
-    </div>);
+    </div>
+    );
   }
 }
