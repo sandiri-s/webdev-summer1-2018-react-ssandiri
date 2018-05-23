@@ -1,7 +1,5 @@
 import React from 'react';
 import ModuleService from '../services/ModuleService';
-import { Link } from 'react-router-dom';
-
 export default class ModuleListItem
   extends React.Component {
   constructor(props) {
@@ -10,12 +8,9 @@ export default class ModuleListItem
   }
   render() {
     return (
-      <li className="list-group-item">
 
-        <Link to={`/module/${this.props.module.id}`}>
-        {this.props.module.title}
-        </Link>
-
+       <li className="nav-item"><a className="nav-link active"
+                              href="#">{this.props.lesson.title}</a>
         <span className="float-right">
     <button type="button" className="close" aria-label="Close" onClick ={this.deleteModule}>
             <span aria-hidden="true">&times;</span>
@@ -26,7 +21,7 @@ export default class ModuleListItem
   }
 
   deleteModule(event){
-    this.props.deleteFun(this.props.module.id,this.props.courseId);
+    this.props.deleteFun(this.props.lesson.id,this.props.moduleId);
 
   }
 

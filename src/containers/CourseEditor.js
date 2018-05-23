@@ -1,6 +1,7 @@
 import React from 'react'
 import ModuleList from './ModuleList'
-import LessonTabs from './LessonTabs'
+import ModuleEditor from './ModuleEditor'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 export default class CourseEditor
   extends React.Component {
@@ -22,14 +23,18 @@ export default class CourseEditor
 
   render() {
     return(
+      <Router>
     <div>
       <div className="row">
         <div className="col-4">
           <ModuleList courseId={this.state.courseId}/>
         </div>
         <div className="col-8">
-          <LessonTabs/>
+          <Route path="/module/:moduleId"
+                exact component={ModuleEditor}>
+          </Route>
         </div>
       </div>
     </div>
+  </Router>
   );}}
