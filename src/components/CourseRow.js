@@ -41,6 +41,8 @@ class CourseRow extends React.Component {
   }
 
   deleteCourse(event){
+  if(!window.confirm("are you sure, you want to delete?"))
+  {return;}
     this.props.deleteFun(this.props.course.id);
 
   }

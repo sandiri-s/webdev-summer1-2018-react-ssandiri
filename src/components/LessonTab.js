@@ -21,6 +21,8 @@ export default class ModuleListItem
   }
 
   deleteModule(event){
+    if(!window.confirm("are you sure, you want to delete?"))
+    {return;}
     this.props.deleteFun(this.props.lesson.id,this.props.moduleId);
 
   }
