@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import ModuleListItem from '../components/ModuleListItem';
 import ModuleService from '../services/ModuleService';
 import CourseService from '../services/CourseService';
-
+import { Link } from 'react-router-dom';
 
 export default class ModuleList extends Component {
   constructor(props) {
@@ -56,7 +56,16 @@ export default class ModuleList extends Component {
   }
 
   createModule() {
-    this.moduleService.createModule(this.props.courseId, this.state.module).then(() => {
+    let module ;
+    if(this.state.module.title==''){
+      module= {title:"Untitled Module"}
+    }
+    else{
+
+      module = this.state.module;
+    }
+
+    this.moduleService.createModule(this.props.courseId, module).then(() => {
       this.findAllModulesForCourse(this.props.courseId)
     })
   }
@@ -74,6 +83,11 @@ export default class ModuleList extends Component {
     })
   }
 
+  routeToCourseList(){
+
+    window.location.href = '/'
+  }
+
   renderListOfModules() {
     let modules = this.state.modules.map((module) =>  {
       return <ModuleListItem deleteFun={this.deleteModule} module={module} courseId ={this.props.courseId} key={module.id}/>
@@ -87,7 +101,9 @@ export default class ModuleList extends Component {
 
         <div className ="col-1">
 
-            <i className="fa fa-chevron-circle-left fa-2x"></i>
+                      <i className="fa fa-chevron-circle-left fa-2x" onClick={this.routeToCourseList}></i>
+
+
 
         </div>
 
@@ -97,7 +113,7 @@ export default class ModuleList extends Component {
       </div>
 
       <div className="input-group mb-3">
-  <input onChange={this.titleChanged} value={this.state.module.title} placeholder="title" type="text" className="form-control"  aria-describedby="basic-addon2"/>
+  <input onChange={this.titleChanged} value={this.state.module.title} placeholder="Enter the module title" type="text" className="form-control"  aria-describedby="basic-addon2"/>
   <div className="input-group-append">
     <button onClick={this.createModule} className="btn btn-primary btn-block">
       <i className="fa fa-plus "></i>

@@ -49,7 +49,16 @@ export default class LessonTabs extends Component {
   }
 
   createLesson() {
-    this.lessonService.createLesson(this.props.moduleId, this.state.lesson).then(() => {
+    let lesson ;
+    if(this.state.lesson.title==''){
+      lesson= {title:"Untitled Lesson"}
+    }
+    else{
+
+      lesson = this.state.lesson;
+    }
+
+    this.lessonService.createLesson(this.props.moduleId, lesson).then(() => {
       this.findAllLessonsForModule(this.props.moduleId)
     })
   }
@@ -85,7 +94,7 @@ export default class LessonTabs extends Component {
 
         <div className="col-4">
           <div className="input-group mb-3">
-            <input onChange={this.titleChanged} value={this.state.lesson.title} placeholder="title" type="text" className="form-control" aria-describedby="basic-addon2"/>
+            <input onChange={this.titleChanged} value={this.state.lesson.title} placeholder="Enter the lesson title" type="text" className="form-control" aria-describedby="basic-addon2"/>
             <div className="input-group-append">
               <button onClick={this.createLesson} className="btn btn-primary btn-block">
                 <i className="fa fa-plus "></i>

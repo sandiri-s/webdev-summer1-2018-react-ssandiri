@@ -1,6 +1,7 @@
 import React from 'react'
 import ModuleList from './ModuleList'
 import ModuleEditor from './ModuleEditor'
+import CourseList from './CourseList'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 export default class CourseEditor
@@ -25,7 +26,7 @@ export default class CourseEditor
     return(
       <Router>
     <div>
-      <div className="row">
+      <div id="course-editor" className="row">
         <div className="col-4">
           <ModuleList courseId={this.state.courseId}/>
         </div>

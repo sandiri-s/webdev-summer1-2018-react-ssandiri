@@ -9,13 +9,15 @@ export default class ModuleListItem
   render() {
     return (
 
-       <li className="nav-item"><a className="nav-link active"
+       <li className="nav-item">
+        <div className="nav-link active ">
+       <a id="nav-pills-link"
                               href="#">{this.props.lesson.title}</a>
+
         <span className="float-right">
-    <button type="button" className="close" aria-label="Close" onClick ={this.deleteModule}>
-            <span aria-hidden="true">&times;</span>
-      </button>
+          <i className="fa fa-trash" onClick={this.deleteModule}></i>
         </span>
+        </div>
       </li>
     );
   }
