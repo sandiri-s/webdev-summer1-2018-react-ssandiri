@@ -45,7 +45,7 @@ class CourseList extends React.Component {
   createCourse() {
     let course ;
     if(this.state.course.title==''){
-      course= {title:"Untitled Course"}
+      course= {title:"New Course"}
     }
     else{
 

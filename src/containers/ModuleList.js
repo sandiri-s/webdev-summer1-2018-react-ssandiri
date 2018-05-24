@@ -58,7 +58,7 @@ export default class ModuleList extends Component {
   createModule() {
     let module ;
     if(this.state.module.title==''){
-      module= {title:"Untitled Module"}
+      module= {title:"New Module"}
     }
     else{
 
@@ -79,7 +79,8 @@ export default class ModuleList extends Component {
 
   deleteModule(ModuleId,CourseId) {
     this.moduleService.deleteModule(ModuleId).then(() => {
-      this.findAllModulesForCourse(CourseId)
+      //this.findAllModulesForCourse(CourseId)
+      window.location.href = '/course/' + CourseId;
     })
   }
 
@@ -102,8 +103,6 @@ export default class ModuleList extends Component {
         <div className ="col-1">
 
                       <i className="fa fa-chevron-circle-left fa-2x" onClick={this.routeToCourseList}></i>
-
-
 
         </div>
 

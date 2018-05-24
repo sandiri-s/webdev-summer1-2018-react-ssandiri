@@ -51,7 +51,7 @@ export default class LessonTabs extends Component {
   createLesson() {
     let lesson ;
     if(this.state.lesson.title==''){
-      lesson= {title:"Untitled Lesson"}
+      lesson= {title:"New Lesson"}
     }
     else{
 
