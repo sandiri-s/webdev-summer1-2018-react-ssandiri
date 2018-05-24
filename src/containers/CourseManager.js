@@ -14,7 +14,7 @@ export default class CourseManager
           <Route path="/"
                  exact component={CourseList}>
           </Route>
-          <Route path="/course/:courseId"
+          <Route  path="/course/:courseId"
                 exact component={CourseEditor}>
           </Route>
         </div>

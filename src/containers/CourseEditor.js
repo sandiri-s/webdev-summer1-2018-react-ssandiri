@@ -25,7 +25,7 @@ export default class CourseEditor
   render() {
     return(
       <Router>
-    <div>
+    <div >
       <div id="course-editor" className="row">
         <div className="col-4">
           <ModuleList courseId={this.state.courseId}/>

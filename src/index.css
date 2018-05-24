@@ -5,14 +5,13 @@
 
 #modules-list {
   height:100vh;
-  top: 20px;
+  top: 10px;
   bottom: 20px;
   left: 20px;
   right: 20px;
   overflow: auto;
   margin: 0;
   padding: 0;
-
   -webkit-overflow-scrolling: touch;
 }
 
@@ -33,16 +32,50 @@ margin-right: 15px
 #course-editor{
 
     margin-top: 20px;
+
 }
+
+#module-editor{
+
+    margin-top: 50px;
+
+}
+#course-editor-body{
+
+    background-color: grey;
+}
+#module-list-header{
+  border-radius: 25px;
+    border: 1px solid grey;
+    margin-bottom: 20px;
+    padding: 20px;
+
+}
+
+
+#lesson-editor{
+    background-color: #ffffcc;
+    margin-top: 20px;
+    margin-top: 20px;
+
+}
+
+
+
+
 #list-of-lessons {
 
   top: 20px;
   bottom: 20px;
   left: 20px;
   right: 20px;
+
   overflow-x: auto;
 
+}
 
+#module-list-searchbar{
 
+  margin-top: 20px;
 
 }

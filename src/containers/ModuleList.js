@@ -98,7 +98,8 @@ export default class ModuleList extends Component {
   render() {
     return (
       <div>
-      <div className="row">
+        <div id="module-list-header" >
+      <div className="row" >
 
         <div className ="col-1">
 
@@ -111,7 +112,7 @@ export default class ModuleList extends Component {
         </div>
       </div>
 
-      <div className="input-group mb-3">
+      <div className="input-group mb-3" id="module-list-searchbar">
   <input onChange={this.titleChanged} value={this.state.module.title} placeholder="Enter the module title" type="text" className="form-control"  aria-describedby="basic-addon2"/>
   <div className="input-group-append">
     <button onClick={this.createModule} className="btn btn-primary btn-block">
@@ -119,7 +120,7 @@ export default class ModuleList extends Component {
     </button>
   </div>
 </div>
-
+</div>
       <br/>
       <ul className="list-group" id="modules-list">
         {this.renderListOfModules()}

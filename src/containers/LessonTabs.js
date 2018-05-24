@@ -84,9 +84,9 @@ export default class LessonTabs extends Component {
   }
   render() {
     return (<div>
-      <div className="row">
+      <div className="row" id='module-editor'>
 
-        <div className="col-8">
+        <div className="col-8" >
           <ul className="nav nav-pills" id= "list-of-lessons">
             {this.renderListOfLessons()}
           </ul>

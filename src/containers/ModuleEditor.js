@@ -28,8 +28,8 @@ export default class ModuleEditor
       <div>
           <LessonTabs moduleId={this.state.moduleId}/>
 
-        <div className="row">
-          This is a Lesson Editor
+        <div id="lesson-editor">
+          <p>This is a Lesson Editor</p>
             </div>
 
 </div>
