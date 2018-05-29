@@ -23,8 +23,9 @@ export const findAllWidgetsForLesson = (dispatch,lessonId) => {
 export const addWidget = dispatch => (
   dispatch({type: constants.ADD_WIDGET})
 )
-export const save = dispatch => (
-  dispatch({type: constants.SAVE})
+export const save = (dispatch,lessonId) => (
+  dispatch({type: constants.SAVE,
+            lessonId : lessonId})
 )
 export const preview = dispatch => (
   dispatch({type: constants.PREVIEW})

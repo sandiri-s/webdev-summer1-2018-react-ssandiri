@@ -45,7 +45,7 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
     case constants.SAVE:
 
       let unsavedWidgets = state.widgets.filter((widget) => {return !(typeof widget.id === 'undefined');})
-      fetch('https://course-mngmnt-webdev-ssandiri.herokuapp.com/api/widget/'+action.lessonId+"/widgets", {
+      fetch('https://course-mngmnt-webdev-ssandiri.herokuapp.com/api/lesson/'+action.lessonId+"/widgets", {
         method: 'post',
         body: JSON.stringify(unsavedWidgets),
         headers: {

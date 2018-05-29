@@ -8,6 +8,7 @@ class WidgetList extends Component {
     super(props)
     this.state = {lessonId: ''};
     this.selectLesson = this.selectLesson.bind(this);
+    this.saveToServer = this.saveToServer.bind(this);
 
   }
 
@@ -29,14 +30,17 @@ class WidgetList extends Component {
       this.setState({lessonId: lessonId});
     }
 
+  saveToServer(){
 
+    this.props.save(this.state.lessonId);
+  }
   render() {
     return(
       <div>
           <div className='float-right'>
           <h1>Widget List {this.props.widgets.length}</h1>
           </div>
-        <button className="float-right" disabled={this.props.previewMode} onClick={this.props.save}>
+        <button className="float-right" disabled={this.props.previewMode} onClick={this.saveToServer}>
           Save
         </button>
 
@@ -64,7 +68,7 @@ const dispatcherToPropsMapper
   = dispatch => ({
   findAllWidgetsForLesson: (lessonId) => actions.findAllWidgetsForLesson(dispatch,lessonId),
   addWidget: () => actions.addWidget(dispatch),
-  save: () => actions.save(dispatch),
+  save: (lessonId) => actions.save(dispatch,lessonId),
   preview: () => actions.preview(dispatch)
 })
 const WidgetListContainer = connect(
