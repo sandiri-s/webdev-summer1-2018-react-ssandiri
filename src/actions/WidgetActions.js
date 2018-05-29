@@ -13,11 +13,11 @@ export const headingSizeChanged = (dispatch, widgetId, newSize) => (
     size: newSize})
 )
 
-export const findAllWidgets = dispatch => {
-  fetch('http://localhost:8080/api/widget')
+export const findAllWidgetsForLesson = (dispatch,lessonId) => {
+  fetch('https://course-mngmnt-webdev-ssandiri.herokuapp.com/api/lesson/'+lessonId+"/widget")
     .then(response => (response.json()))
     .then(widgets => dispatch({
-      type: constants.FIND_ALL_WIDGETS,
+      type: constants.FIND_ALL_WIDGETS_FOR_LESSON,
       widgets: widgets }))
 }
 export const addWidget = dispatch => (

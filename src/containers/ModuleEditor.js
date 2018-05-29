@@ -1,5 +1,7 @@
 import React from 'react';
 import LessonTabs from './LessonTabs';
+import WidgetListContainer from './WidgetListEditor'
+import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 export default class ModuleEditor
   extends React.Component {
@@ -25,12 +27,16 @@ export default class ModuleEditor
 
   render() {
     return(
+      <Router>
       <div>
           <LessonTabs moduleId={this.state.moduleId}/>
 
         <div id="lesson-editor">
-          <p>This is a Lesson Editor</p>
+          <Route path="/lesson/:lessonId"
+                exact component={WidgetListContainer}>
+          </Route>
             </div>
 
 </div>
+</Router>
   );}}

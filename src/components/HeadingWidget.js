@@ -1,7 +1,7 @@
 import React from  'react'
 import {connect} from 'react-redux'
 import {DELETE_WIDGET} from "../constants/WidgetConstants"
-import * as actions from '../actions'
+import * as actions from '../actions/WidgetActions'
 
 
 const Heading = ({widget, preview, headingTextChanged, headingSizeChanged}) => {
@@ -41,4 +41,5 @@ const dispathToPropsMapper = dispatch => ({
 const stateToPropsMapper = state => ({
   preview: state.preview
 })
-const HeadingContainer = connect(stateToPropsMapper, dispathToPropsMapper)(Heading)
+ const HeadingContainer = connect(stateToPropsMapper, dispathToPropsMapper)(Heading)
+ export default HeadingContainer;

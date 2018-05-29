@@ -1,13 +1,35 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import * as actions from "../actions"
-import WidgetContainer from '../components/widget'
+import * as actions from "../actions/WidgetActions"
+import WidgetContainer from '../components/Widget'
 
 class WidgetList extends Component {
   constructor(props) {
     super(props)
-    this.props.findAllWidgets()
+    this.state = {lessonId: ''};
+    this.selectLesson = this.selectLesson.bind(this);
+
   }
+
+    componentDidMount() {
+      this.selectLesson
+      (this.props.match.params.lessonId);
+      if(!(this.props.lessonId==='undefined'))
+        {
+          this.props.findAllWidgetsForLesson(this.props.match.params.lessonId);
+        }
+    }
+    componentWillReceiveProps(newProps) {
+      this.selectLesson
+      (newProps.match.params.lessonId);
+
+    }
+
+    selectLesson(lessonId) {
+      this.setState({lessonId: lessonId});
+    }
+
+
   render() {
     return(
       <div>
@@ -40,7 +62,7 @@ const stateToPropertiesMapper = (state) => ({
 })
 const dispatcherToPropsMapper
   = dispatch => ({
-  findAllWidgets: () => actions.findAllWidgets(dispatch),
+  findAllWidgetsForLesson: (lessonId) => actions.findAllWidgetsForLesson(dispatch,lessonId),
   addWidget: () => actions.addWidget(dispatch),
   save: () => actions.save(dispatch),
   preview: () => actions.preview(dispatch)
