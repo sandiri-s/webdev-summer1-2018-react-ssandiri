@@ -5,6 +5,7 @@ import * as actions from '../actions/WidgetActions'
 import HeadingContainer from './HeadingWidget'
 import ParagraphContainer from './ParagraphWidget'
 import ListContainer from './ListWidget'
+import ImageContainer from './ImageWidget'
 
 const Widget = ({widget, preview, dispatch}) => {
   let selectElement
@@ -35,6 +36,7 @@ const Widget = ({widget, preview, dispatch}) => {
         {widget.widgetType==='Heading' && <HeadingContainer widget={widget}/>}
         {widget.widgetType==='Paragraph' && <ParagraphContainer widget={widget}/>}
         {widget.widgetType==='List' && <ListContainer widget={widget}/>}
+        {widget.widgetType==='Image' && <ImageContainer widget={widget}/>}
       </div>
     </li>
   )

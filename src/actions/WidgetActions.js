@@ -27,6 +27,13 @@ export const nameChanged = (dispatch, widgetId, newName) => (
     name: newName})
 )
 
+export const srcChanged = (dispatch, widgetId, newSrc) => (
+  dispatch({
+    type: constants.SRC_CHANGED,
+    id: widgetId,
+    src: newSrc})
+)
+
 
 export const findAllWidgetsForLesson = (dispatch,lessonId) => {
   fetch('https://course-mngmnt-webdev-ssandiri.herokuapp.com/api/lesson/'+lessonId+"/widget")
