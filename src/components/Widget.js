@@ -1,6 +1,6 @@
 import React from  'react'
 import {connect} from 'react-redux'
-import {DELETE_WIDGET} from "../constants/WidgetConstants"
+import {DELETE_WIDGET,DECREASE_ORDER_WIDGET,INCREASE_ORDER_WIDGET} from "../constants/WidgetConstants"
 import * as actions from '../actions/WidgetActions'
 import HeadingContainer from './HeadingWidget'
 import ParagraphContainer from './ParagraphWidget'
@@ -8,7 +8,7 @@ import ListContainer from './ListWidget'
 import ImageContainer from './ImageWidget'
 import LinkContainer from './LinkWidget'
 
-const Widget = ({widget, preview, dispatch}) => {
+const Widget = ({widget, preview, widgetLength, dispatch}) => {
   let selectElement
   return(
     <li>
@@ -30,7 +30,16 @@ const Widget = ({widget, preview, dispatch}) => {
       </select>
 
       <button onClick={e => (
-        dispatch({type: DELETE_WIDGET, id: widget.id})
+        dispatch({type: DECREASE_ORDER_WIDGET, order: widget.order})
+      )} disabled={(widget.order == 1)} className="btn btn-danger my-2 my-sm-0" type="button">Up</button>
+
+      <button onClick={e => (
+        dispatch({type: INCREASE_ORDER_WIDGET, order: widget.order})
+      )}  disabled={(widget.order==widgetLength)} className="btn btn-danger my-2 my-sm-0" type="button">Down</button>
+
+
+      <button onClick={e => (
+        dispatch({type: DELETE_WIDGET, order: widget.order})
       )}>Delete</button>
       </div>
       <div>

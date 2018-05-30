@@ -105,6 +105,39 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
           widget.id !== action.id
         ))
       }
+
+    case constants.INCREASE_ORDER_WIDGET:
+    return {
+      widgets: state.widgets.map(widget => {
+        if(widget.order == action.order) {
+          widget.order = widget.order + 1;
+          return Object.assign({}, widget)
+        }
+
+        if(widget.order == (action.order+1)){
+          widget.order = widget.order - 1;
+          return Object.assign({}, widget)
+        }
+        return Object.assign({}, widget)
+      }).sort(function(a,b) {return (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0);} )
+    }
+
+    case constants.DECREASE_ORDER_WIDGET:
+    return {
+      widgets: state.widgets.map(widget => {
+        if(widget.order == action.order) {
+          widget.order = widget.order - 1;
+          return Object.assign({}, widget)
+        }
+
+        if(widget.order == (action.order-1)){
+          widget.order = widget.order + 1;
+          return Object.assign({}, widget)
+        }
+        return Object.assign({}, widget)
+      }).sort(function(a,b) {return (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0);} )
+    }
+
     case constants.ADD_WIDGET:
       return {
         widgets: [
@@ -117,7 +150,8 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
             size: '2',
             listType:'unordered',
             src:'',
-            href:''
+            href:'',
+            order:state.widgets.length + 1
           }
         ]
       }

@@ -35,6 +35,7 @@ class WidgetList extends Component {
     this.props.save(this.state.lessonId);
   }
   render() {
+    console.log(this.props.widgets)
     return(
       <div>
           <div className='float-right'>
@@ -50,7 +51,7 @@ class WidgetList extends Component {
           {this.props.widgets.map(widget => (
             <WidgetContainer widget={widget}
                              preview={this.props.previewMode}
-                             key={widget.id}/>
+                             key={widget.id} widgetLength ={this.props.widgets.length}/>
           ))}
         </ul>
         <button onClick={this.props.addWidget}>Add widget
