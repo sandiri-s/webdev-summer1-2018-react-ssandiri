@@ -4,7 +4,7 @@ import {DELETE_WIDGET} from "../constants/WidgetConstants"
 import * as actions from '../actions/WidgetActions'
 
 
-const Heading = ({widget, preview, headingTextChanged, headingSizeChanged}) => {
+const Heading = ({widget, preview, textChanged, headingSizeChanged}) => {
   let selectElem
   let inputElem
   return(
@@ -12,7 +12,7 @@ const Heading = ({widget, preview, headingTextChanged, headingSizeChanged}) => {
 
       <div hidden={preview}>
         <h2> Heading {widget.size}</h2>
-          <input onChange={() => headingTextChanged(widget.id, inputElem.value)}
+          <input onChange={() => textChanged(widget.id, inputElem.value)}
                  value={widget.text}
                  ref={node => inputElem = node}/>
           <select onChange={() => headingSizeChanged(widget.id, selectElem.value)}
@@ -32,14 +32,14 @@ const Heading = ({widget, preview, headingTextChanged, headingSizeChanged}) => {
     </div>
   )
 }
-const dispathToPropsMapper = dispatch => ({
-  headingTextChanged: (widgetId, newText) =>
-    actions.headingTextChanged(dispatch, widgetId, newText),
+const dispatchToPropsMapper = dispatch => ({
+  textChanged: (widgetId, newText) =>
+    actions.textChanged(dispatch, widgetId, newText),
   headingSizeChanged: (widgetId, newSize) =>
     actions.headingSizeChanged(dispatch, widgetId, newSize)
 })
 const stateToPropsMapper = state => ({
   preview: state.preview
 })
- const HeadingContainer = connect(stateToPropsMapper, dispathToPropsMapper)(Heading)
+ const HeadingContainer = connect(stateToPropsMapper, dispatchToPropsMapper)(Heading)
  export default HeadingContainer;

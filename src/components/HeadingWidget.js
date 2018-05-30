@@ -4,7 +4,7 @@ import {DELETE_WIDGET} from "../constants/WidgetConstants"
 import * as actions from '../actions/WidgetActions'
 
 
-const Heading = ({widget, preview, headingTextChanged, headingSizeChanged,headingNameChanged}) => {
+const Heading = ({widget, preview, textChanged, headingSizeChanged,nameChanged}) => {
   let selectElem
   let inputNameElem
   let inputTextElem
@@ -13,10 +13,10 @@ const Heading = ({widget, preview, headingTextChanged, headingSizeChanged,headin
 
       <div hidden={preview}>
         <h2> Heading {widget.size}</h2>
-          <input onChange={() => headingTextChanged(widget.id, inputTextElem.value)}
+          <input onChange={() => textChanged(widget.id, inputTextElem.value)}
                  value={widget.text}
                  ref={node => inputTextElem = node}/>
-               <input onChange={() => headingNameChanged(widget.id, inputNameElem.value)}
+               <input onChange={() => nameChanged(widget.id, inputNameElem.value)}
                         value={widget.name}
                         ref={node => inputNameElem = node}/>
           <select onChange={() => headingSizeChanged(widget.id, selectElem.value)}
@@ -37,10 +37,10 @@ const Heading = ({widget, preview, headingTextChanged, headingSizeChanged,headin
   )
 }
 const dispathToPropsMapper = dispatch => ({
-  headingTextChanged: (widgetId, newText) =>
-    actions.headingTextChanged(dispatch, widgetId, newText),
-    headingNameChanged: (widgetId, newName) =>
-      actions.headingNameChanged(dispatch, widgetId, newName),
+  textChanged: (widgetId, newText) =>
+    actions.textChanged(dispatch, widgetId, newText),
+    nameChanged: (widgetId, newName) =>
+      actions.nameChanged(dispatch, widgetId, newName),
   headingSizeChanged: (widgetId, newSize) =>
     actions.headingSizeChanged(dispatch, widgetId, newSize)
 })

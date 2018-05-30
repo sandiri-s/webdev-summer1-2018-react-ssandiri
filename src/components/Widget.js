@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {DELETE_WIDGET} from "../constants/WidgetConstants"
 import * as actions from '../actions/WidgetActions'
 import HeadingContainer from './HeadingWidget'
+import ParagraphContainer from './ParagraphWidget'
 
 const Widget = ({widget, preview, dispatch}) => {
   let selectElement
@@ -21,6 +22,7 @@ const Widget = ({widget, preview, dispatch}) => {
         <option>Heading</option>
         <option>Paragraph</option>
         <option>List</option>
+        <option>Link</option>
         <option>Image</option>
       </select>
 
@@ -30,7 +32,7 @@ const Widget = ({widget, preview, dispatch}) => {
       </div>
       <div>
         {widget.widgetType==='Heading' && <HeadingContainer widget={widget}/>}
-
+                {widget.widgetType==='Paragraph' && <ParagraphContainer widget={widget}/>}
       </div>
     </li>
   )

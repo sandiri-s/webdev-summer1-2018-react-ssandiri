@@ -4,45 +4,40 @@ import {DELETE_WIDGET} from "../constants/WidgetConstants"
 import * as actions from '../actions/WidgetActions'
 
 
-const Heading = ({widget, preview, headingTextChanged, headingSizeChanged}) => {
-  let selectElem
+const Paragraph = ({widget, preview, textChanged,nameChanged}) => {
+  let inputNameElem
   let inputElem
   return(
     <div>
 
       <div hidden={preview}>
         <h2> Heading {widget.size}</h2>
-          <input onChange={() => headingTextChanged(widget.id, inputElem.value)}
+          <textarea onChange={() => textChanged(widget.id, inputElem.value)}
                  value={widget.text}
                  ref={node => inputElem = node}/>
-          <select onChange={() => headingSizeChanged(widget.id, selectElem.value)}
-                  value={widget.size}
-                  ref={node => selectElem = node}>
-            <option value="1">Heading 1</option>
-            <option value="2">Heading 2</option>
-            <option value="3">Heading 3</option>
-          </select>
+                 <input onChange={() => nameChanged(widget.id, inputNameElem.value)}
+                          value={widget.name}
+                          ref={node => inputNameElem = node}/>
 
           <h3>Preview</h3>
 
-      </div>
-      {widget.size == 1 && <h1>{widget.text}</h1>}
-      {widget.size == 2 && <h2>{widget.text}</h2>}
-      {widget.size == 3 && <h3>{widget.text}</h3>}
+      </div >
+      <div>
+   <h1>{widget.text}</h1>
+   </div>
     </div>
   )
 }
 const dispathToPropsMapper = dispatch => ({
-  headingTextChanged: (widgetId, newText) =>
-    actions.headingTextChanged(dispatch, widgetId, newText),
+  textChanged: (widgetId, newText) =>
+    actions.textChanged(dispatch, widgetId, newText),
 
-    headingNameChanged: (widgetId, newName) =>
-      actions.headingNameChanged(dispatch, widgetId, newName),  
-  headingSizeChanged: (widgetId, newSize) =>
-    actions.headingSizeChanged(dispatch, widgetId, newSize)
+    nameChanged: (widgetId, newName) =>
+      actions.nameChanged(dispatch, widgetId, newName),
+
 })
 const stateToPropsMapper = state => ({
   preview: state.preview
 })
- const HeadingContainer = connect(stateToPropsMapper, dispathToPropsMapper)(Heading)
- export default HeadingContainer;
+ const ParagraphContainer = connect(stateToPropsMapper, dispathToPropsMapper)(Paragraph)
+ export default ParagraphContainer;
