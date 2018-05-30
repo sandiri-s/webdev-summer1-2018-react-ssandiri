@@ -37,7 +37,6 @@ class List extends React.Component {
     <div>
 
       <div hidden={this.props.preview}>
-        <h2> Heading {this.props.widget.size}</h2>
           <textarea onChange={() => this.props.textChanged(this.props.widget.id, inputElem.value)}
                  value={this.props.widget.text}
                  ref={node => inputElem = node}/>
@@ -52,7 +51,7 @@ class List extends React.Component {
                           </select>
 
 
-          <h3>Preview</h3>
+          <h4>Preview</h4>
 
       </div >
       <div>

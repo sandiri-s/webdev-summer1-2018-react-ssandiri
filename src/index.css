@@ -54,9 +54,25 @@ margin-right: 15px
 
 
 #lesson-editor{
-    background-color: #ffffcc;
+
     margin-top: 20px;
-    margin-top: 20px;
+    border-radius: 25px;
+      border: 1px solid grey;
+        padding: 20px;
+
+}
+#save-btn{
+margin-right:10px;
+
+}
+
+.button-space{
+margin-right:10px;
+
+}
+
+#preview-btn{
+
 
 }
 
@@ -65,7 +81,10 @@ margin-right: 15px
   color: white;
 }
 
+#save-preview{
+    margin-bottom: 20px;
 
+}
 
 #list-of-lessons {
 
@@ -77,7 +96,10 @@ margin-right: 15px
   overflow-x: auto;
 
 }
-
+ul {
+  list-style-type: none;
+  padding:0;
+}
 #module-list-searchbar{
 
   margin-top: 20px;

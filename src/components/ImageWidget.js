@@ -12,7 +12,6 @@ const Image = ({widget, preview, srcChanged,nameChanged}) => {
     <div>
 
       <div hidden={preview}>
-        <h2> Heading {widget.size}</h2>
           <input onChange={() => srcChanged(widget.id, inputSrcElem.value)}
                  value={widget.src}
                  ref={node => inputSrcElem = node}/>
@@ -20,7 +19,7 @@ const Image = ({widget, preview, srcChanged,nameChanged}) => {
                         value={widget.name}
                         ref={node => inputNameElem = node}/>
 
-          <h3>Preview</h3>
+                      <h4>Preview</h4>
 
       </div>
       <img src={widget.src} alt="preview image" />

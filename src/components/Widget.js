@@ -12,10 +12,14 @@ const Widget = ({widget, preview, widgetLength, dispatch}) => {
   let selectElement
   return(
     <li>
-      <div hidden={preview}>
-      {widget.id} {widget.className}
 
-      <select value={widget.className}
+      <div id="row" className="row" hidden={preview}>
+      <h3 className="col-6">
+      {widget.className}
+    </h3>
+
+      <div className="col-6">
+      <select className="button-space" value={widget.className}
               onChange={e =>
           dispatch({
             type: 'SELECT_WIDGET_TYPE',
@@ -29,19 +33,22 @@ const Widget = ({widget, preview, widgetLength, dispatch}) => {
         <option>Image</option>
       </select>
 
-      <button onClick={e => (
+      <button  onClick={e => (
         dispatch({type: DECREASE_ORDER_WIDGET, widgetOrder: widget.widgetOrder})
-      )} disabled={(widget.widgetOrder == 1)} className="btn btn-danger my-2 my-sm-0" type="button">Up</button>
+      )} disabled={(widget.widgetOrder == 1)} className="btn btn-warning my-2 my-sm-0 button-space" type="button"><i class="fa fa-arrow-circle-up fa-lg "></i></button>
 
-      <button onClick={e => (
+    <button  onClick={e => (
         dispatch({type: INCREASE_ORDER_WIDGET, widgetOrder: widget.widgetOrder})
-      )}  disabled={(widget.widgetOrder==widgetLength)} className="btn btn-danger my-2 my-sm-0" type="button">Down</button>
+      )}  disabled={(widget.widgetOrder==widgetLength)} className="btn btn-warning my-2 my-sm-0 button-space" type="button"><i class="fa fa-arrow-circle-down fa-lg"></i></button>
 
 
-      <button onClick={e => (
+    <button className="btn btn-danger button-space" onClick={e => (
         dispatch({type: DELETE_WIDGET, id: widget.id})
-      )}>Delete</button>
-      </div>
+      )}><i className="fa fa-trash"></i></button>
+
+  </div>
+  </div>
+
       <div>
         {widget.className==='Heading' && <HeadingContainer widget={widget}/>}
         {widget.className==='Paragraph' && <ParagraphContainer widget={widget}/>}

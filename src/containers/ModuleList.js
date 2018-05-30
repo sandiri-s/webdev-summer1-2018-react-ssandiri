@@ -86,7 +86,7 @@ export default class ModuleList extends Component {
 
   routeToCourseList(){
 
-    window.location.href = '/'
+    window.location.href = '/courses'
   }
 
   renderListOfModules() {

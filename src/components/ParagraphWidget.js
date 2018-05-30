@@ -11,7 +11,6 @@ const Paragraph = ({widget, preview, textChanged,nameChanged}) => {
     <div>
 
       <div hidden={preview}>
-        <h2> Heading {widget.size}</h2>
           <textarea onChange={() => textChanged(widget.id, inputElem.value)}
                  value={widget.text}
                  ref={node => inputElem = node}/>
@@ -19,7 +18,7 @@ const Paragraph = ({widget, preview, textChanged,nameChanged}) => {
                           value={widget.name}
                           ref={node => inputNameElem = node}/>
 
-          <h3>Preview</h3>
+                        <h4>Preview</h4>
 
       </div >
       <div>

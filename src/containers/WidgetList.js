@@ -36,16 +36,19 @@ class WidgetList extends Component {
     console.log(this.props.widgets)
     return(
       <div>
-          <div className='float-right'>
-          <h1>Widget List {this.props.widgets.length}</h1>
-          </div>
-        <button className="float-right" disabled={this.props.previewMode} onClick={this.saveToServer}>
+        <div className="row" id="save-preview">
+        <div className="col-8">
+        </div>
+
+        <div className="col-4">
+        <button type="button" className="btn btn-success" id="save-btn" disabled={this.props.previewMode} onClick={this.saveToServer}>
           Save
         </button>
-        <button onClick={this.props.preview}>
+        <button type ="button" className="btn btn-primary"id="preview-btn" onClick={this.props.preview}>
             Preview
-              </button>
-
+          </button>
+        </div>
+        </div>
 
 
         <ul>
@@ -55,8 +58,10 @@ class WidgetList extends Component {
                              key={widget.id} widgetLength ={this.props.widgets.length}/>
           ))}
         </ul>
-        <button onClick={this.props.addWidget}>Add widget
+
+        <button className ="btn btn-danger float-right" onClick={this.props.addWidget}><i class="fa fa-plus"></i>
         </button>
+
       </div>
     )
   }

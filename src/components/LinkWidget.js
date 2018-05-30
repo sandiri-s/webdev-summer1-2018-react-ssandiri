@@ -13,7 +13,6 @@ const Link = ({widget, preview, hrefChanged,nameChanged,textChanged}) => {
     <div>
 
       <div hidden={preview}>
-        <h2> Heading {widget.size}</h2>
           <input onChange={() => hrefChanged(widget.id, inputHrefElem.value)}
                  value={widget.href}
                  ref={node => inputHrefElem = node}/>
@@ -25,7 +24,7 @@ const Link = ({widget, preview, hrefChanged,nameChanged,textChanged}) => {
                         ref={node => inputNameElem = node}/>
 
 
-          <h3>Preview</h3>
+                      <h4>Preview</h4>
 
       </div>
       <a href={widget.href}> {widget.text} </a>

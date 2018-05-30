@@ -12,7 +12,6 @@ const Heading = ({widget, preview, textChanged, headingSizeChanged,nameChanged})
     <div>
 
       <div hidden={preview}>
-        <h2> Heading {widget.size}</h2>
           <input onChange={() => textChanged(widget.id, inputTextElem.value)}
                  value={widget.text}
                  ref={node => inputTextElem = node}/>
@@ -27,7 +26,7 @@ const Heading = ({widget, preview, textChanged, headingSizeChanged,nameChanged})
             <option value="3">Heading 3</option>
           </select>
 
-          <h3>Preview</h3>
+          <h4>Preview</h4>
 
       </div>
       {widget.size == 1 && <h1>{widget.text}</h1>}
