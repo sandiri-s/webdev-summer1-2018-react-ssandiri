@@ -76,7 +76,7 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
       let newState = {
         widgets: state.widgets.filter((widget) => {
           if(widget.id === action.id) {
-            widget.widgetType = action.widgetType
+            widget.className = action.className
           }
           return true;
         })
@@ -109,33 +109,33 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
     case constants.INCREASE_ORDER_WIDGET:
     return {
       widgets: state.widgets.map(widget => {
-        if(widget.order == action.order) {
-          widget.order = widget.order + 1;
+        if(widget.widgetOrder == action.widgetOrder) {
+          widget.widgetOrder = widget.widgetOrder + 1;
           return Object.assign({}, widget)
         }
 
-        if(widget.order == (action.order+1)){
-          widget.order = widget.order - 1;
+        if(widget.widgetOrder == (action.widgetOrder+1)){
+          widget.widgetOrder = widget.widgetOrder - 1;
           return Object.assign({}, widget)
         }
         return Object.assign({}, widget)
-      }).sort(function(a,b) {return (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0);} )
+      }).sort(function(a,b) {return (a.widgetOrder > b.widgetOrder) ? 1 : ((b.widgetOrder > a.widgetOrder) ? -1 : 0);} )
     }
 
     case constants.DECREASE_ORDER_WIDGET:
     return {
       widgets: state.widgets.map(widget => {
-        if(widget.order == action.order) {
-          widget.order = widget.order - 1;
+        if(widget.widgetOrder == action.widgetOrder) {
+          widget.widgetOrder = widget.widgetOrder - 1;
           return Object.assign({}, widget)
         }
 
-        if(widget.order == (action.order-1)){
-          widget.order = widget.order + 1;
+        if(widget.widgetOrder == (action.widgetOrder-1)){
+          widget.widgetOrder = widget.widgetOrder + 1;
           return Object.assign({}, widget)
         }
         return Object.assign({}, widget)
-      }).sort(function(a,b) {return (a.order > b.order) ? 1 : ((b.order > a.order) ? -1 : 0);} )
+      }).sort(function(a,b) {return (a.widgetOrder > b.widgetOrder) ? 1 : ((b.widgetOrder > a.widgetOrder) ? -1 : 0);} )
     }
 
     case constants.ADD_WIDGET:
@@ -146,12 +146,12 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
             id: state.widgets.length + 1,
             text: 'New Widget',
             name: 'Widget Name',
-            widgetType: 'Heading',
+            className: 'Heading',
             size: '2',
             listType:'unordered',
             src:'',
             href:'',
-            order:state.widgets.length + 1
+            widgetOrder:state.widgets.length + 1
           }
         ]
       }

@@ -13,14 +13,14 @@ const Widget = ({widget, preview, widgetLength, dispatch}) => {
   return(
     <li>
       <div hidden={preview}>
-      {widget.id} {widget.widgetType}
+      {widget.id} {widget.className}
 
-      <select value={widget.widgetType}
+      <select value={widget.className}
               onChange={e =>
           dispatch({
             type: 'SELECT_WIDGET_TYPE',
             id: widget.id,
-            widgetType: selectElement.value
+            className: selectElement.value
           })} ref={node => selectElement = node}>
         <option>Heading</option>
         <option>Paragraph</option>
@@ -30,12 +30,12 @@ const Widget = ({widget, preview, widgetLength, dispatch}) => {
       </select>
 
       <button onClick={e => (
-        dispatch({type: DECREASE_ORDER_WIDGET, order: widget.order})
-      )} disabled={(widget.order == 1)} className="btn btn-danger my-2 my-sm-0" type="button">Up</button>
+        dispatch({type: DECREASE_ORDER_WIDGET, widgetOrder: widget.widgetOrder})
+      )} disabled={(widget.widgetOrder == 1)} className="btn btn-danger my-2 my-sm-0" type="button">Up</button>
 
       <button onClick={e => (
-        dispatch({type: INCREASE_ORDER_WIDGET, order: widget.order})
-      )}  disabled={(widget.order==widgetLength)} className="btn btn-danger my-2 my-sm-0" type="button">Down</button>
+        dispatch({type: INCREASE_ORDER_WIDGET, widgetOrder: widget.widgetOrder})
+      )}  disabled={(widget.widgetOrder==widgetLength)} className="btn btn-danger my-2 my-sm-0" type="button">Down</button>
 
 
       <button onClick={e => (
@@ -43,11 +43,11 @@ const Widget = ({widget, preview, widgetLength, dispatch}) => {
       )}>Delete</button>
       </div>
       <div>
-        {widget.widgetType==='Heading' && <HeadingContainer widget={widget}/>}
-        {widget.widgetType==='Paragraph' && <ParagraphContainer widget={widget}/>}
-        {widget.widgetType==='List' && <ListContainer widget={widget}/>}
-        {widget.widgetType==='Image' && <ImageContainer widget={widget}/>}
-        {widget.widgetType==='Link' && <LinkContainer widget={widget}/>}
+        {widget.className==='Heading' && <HeadingContainer widget={widget}/>}
+        {widget.className==='Paragraph' && <ParagraphContainer widget={widget}/>}
+        {widget.className==='List' && <ListContainer widget={widget}/>}
+        {widget.className==='Image' && <ImageContainer widget={widget}/>}
+        {widget.className==='Link' && <LinkContainer widget={widget}/>}
       </div>
     </li>
   )
