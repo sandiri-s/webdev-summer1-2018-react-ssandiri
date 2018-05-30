@@ -20,6 +20,16 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
         })
       }
 
+      case constants.HREF_CHANGED:
+        return {
+          widgets: state.widgets.map(widget => {
+            if(widget.id === action.id) {
+              widget.href = action.href
+            }
+            return Object.assign({}, widget)
+          })
+        }
+
     case constants.HEADING_SIZE_CHANGED:
       return {
         widgets: state.widgets.map(widget => {
@@ -106,7 +116,8 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
             widgetType: 'Heading',
             size: '2',
             listType:'unordered',
-            src:''
+            src:'',
+            href:''
           }
         ]
       }

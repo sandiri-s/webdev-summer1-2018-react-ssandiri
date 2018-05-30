@@ -6,6 +6,7 @@ import HeadingContainer from './HeadingWidget'
 import ParagraphContainer from './ParagraphWidget'
 import ListContainer from './ListWidget'
 import ImageContainer from './ImageWidget'
+import LinkContainer from './LinkWidget'
 
 const Widget = ({widget, preview, dispatch}) => {
   let selectElement
@@ -37,6 +38,7 @@ const Widget = ({widget, preview, dispatch}) => {
         {widget.widgetType==='Paragraph' && <ParagraphContainer widget={widget}/>}
         {widget.widgetType==='List' && <ListContainer widget={widget}/>}
         {widget.widgetType==='Image' && <ImageContainer widget={widget}/>}
+        {widget.widgetType==='Link' && <LinkContainer widget={widget}/>}
       </div>
     </li>
   )
