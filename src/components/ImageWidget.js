@@ -15,12 +15,12 @@ const Image = ({widget, preview, srcChanged,nameChanged}) => {
           <div className="widget-elements">
           <input onChange={() => srcChanged(widget.id, inputSrcElem.value)}
                  value={widget.src}
-                 ref={node => inputSrcElem = node}/>
+                 ref={node => inputSrcElem = node} placeholder="Image URL"/>
              </div>
             <div className="widget-elements">
                <input onChange={() => nameChanged(widget.id, inputNameElem.value)}
                         value={widget.name}
-                        ref={node => inputNameElem = node}/>
+                        ref={node => inputNameElem = node} placeholder="Widget Name"/>
                     </div>
 
                       <h5 className="widget-elements">Preview</h5>

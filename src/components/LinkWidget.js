@@ -16,17 +16,17 @@ const Link = ({widget, preview, hrefChanged,nameChanged,textChanged}) => {
         <div className="widget-elements">
           <input onChange={() => hrefChanged(widget.id, inputHrefElem.value)}
                  value={widget.href}
-                 ref={node => inputHrefElem = node}/>
+                 ref={node => inputHrefElem = node} placeholder="Link URL"/>
              </div>
              <div className="widget-elements">
                  <input onChange={() => textChanged(widget.id, inputTextElem.value)}
                         value={widget.text}
-                        ref={node => inputTextElem = node}/>
+                        ref={node => inputTextElem = node} placeholder="Link Text"/>
                     </div>
             <div className="widget-elements">
                <input onChange={() => nameChanged(widget.id, inputNameElem.value)}
                         value={widget.name}
-                        ref={node => inputNameElem = node}/>
+                        ref={node => inputNameElem = node} placeholder="Widget Name"/>
 
                     </div>
                       <h5 className="widget-elements">Preview</h5>

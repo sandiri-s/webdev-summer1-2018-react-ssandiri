@@ -15,12 +15,12 @@ const Heading = ({widget, preview, textChanged, headingSizeChanged,nameChanged})
         <div className="widget-elements">
           <input  onChange={() => textChanged(widget.id, inputTextElem.value)}
                  value={widget.text}
-                 ref={node => inputTextElem = node}/>
+                 ref={node => inputTextElem = node} placeholder="Heading Text"/>
              </div>
              <div className="widget-elements">
                <input onChange={() => nameChanged(widget.id, inputNameElem.value)}
                         value={widget.name}
-                        ref={node => inputNameElem = node}/>
+                        ref={node => inputNameElem = node} placeholder="Widget Name"/>
                     </div>
           <div className="widget-elements">
           <select onChange={() => headingSizeChanged(widget.id, selectElem.value)}

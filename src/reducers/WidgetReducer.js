@@ -144,8 +144,8 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
           ...state.widgets,
           {
             id: state.widgets.length + 1,
-            text: 'New Widget',
-            name: 'Widget Name',
+            text: '',
+            name: '',
             className: 'Heading',
             size: '2',
             listType:'unordered',

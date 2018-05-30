@@ -40,21 +40,24 @@ class List extends React.Component {
         <div className="widget-elements">
           <textarea onChange={() => this.props.textChanged(this.props.widget.id, inputElem.value)}
                  value={this.props.widget.text}
-                 ref={node => inputElem = node}/>
+                 ref={node => inputElem = node} placeholder="Enter one list item per line"/>
              </div>
+
+             <div className="widget-elements">
+                       <select onChange={() => this.props.listTypeChanged(this.props.widget.id, selectElem.value)}
+                               value={this.props.widget.listType}
+                               ref={node => selectElem = node}>
+                         <option value="unordered">Unordered List</option>
+                         <option value="ordered">Ordered List</option>
+                       </select>
+                     </div>
+
+
              <div className="widget-elements">
                  <input onChange={() => this.props.nameChanged(this.props.widget.id, inputNameElem.value)}
                           value={this.props.widget.name}
-                          ref={node => inputNameElem = node}/>
+                          ref={node => inputNameElem = node} placeholder="Widget Name"/>
                       </div>
-                <div className="widget-elements">
-                          <select onChange={() => this.props.listTypeChanged(this.props.widget.id, selectElem.value)}
-                                  value={this.props.widget.listType}
-                                  ref={node => selectElem = node}>
-                            <option value="unordered">Unordered List</option>
-                            <option value="ordered">Ordered List</option>
-                          </select>
-                        </div>
 
           <h5 className="widget-elements">Preview</h5>
 

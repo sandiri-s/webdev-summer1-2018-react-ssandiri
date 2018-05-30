@@ -14,12 +14,12 @@ const Paragraph = ({widget, preview, textChanged,nameChanged}) => {
         <div className="widget-elements">
           <textarea onChange={() => textChanged(widget.id, inputElem.value)}
                  value={widget.text}
-                 ref={node => inputElem = node}/>
+                 ref={node => inputElem = node} placeholder="Paragraph Text"/>
              </div>
                      <div className="widget-elements">
                  <input onChange={() => nameChanged(widget.id, inputNameElem.value)}
                           value={widget.name}
-                          ref={node => inputNameElem = node}/>
+                          ref={node => inputNameElem = node} placeholder="Widget Name"/>
                       </div>
                         <h5>Preview</h5>
 
