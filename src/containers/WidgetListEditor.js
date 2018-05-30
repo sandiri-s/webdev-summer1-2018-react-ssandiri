@@ -44,6 +44,9 @@ class WidgetList extends Component {
         <button className="float-right" disabled={this.props.previewMode} onClick={this.saveToServer}>
           Save
         </button>
+        <button onClick={this.props.preview}>
+            Preview
+              </button>
 
 
 
