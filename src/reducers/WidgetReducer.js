@@ -30,6 +30,17 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
         })
       }
 
+      case constants.HEADING_NAME_CHANGED:
+        return {
+          widgets: state.widgets.map(widget => {
+            if(widget.id === action.id) {
+              widget.name = action.name
+            }
+            return Object.assign({}, widget)
+          })
+        }
+
+
     case constants.SELECT_WIDGET_TYPE:
       console.log(action);
       let newState = {
@@ -44,10 +55,10 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
 
     case constants.SAVE:
 
-      let unsavedWidgets = state.widgets.filter((widget) => {return !(typeof widget.id === 'undefined');})
+
       fetch('https://course-mngmnt-webdev-ssandiri.herokuapp.com/api/lesson/'+action.lessonId+"/widgets", {
         method: 'post',
-        body: JSON.stringify(unsavedWidgets),
+        body: JSON.stringify(state.widgets),
         headers: {
           'content-type': 'application/json'}
       })
@@ -71,7 +82,8 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
           {
             id: state.widgets.length + 1,
             text: 'New Widget',
-            widgetType: 'Paragraph',
+            name: 'Widget Name',
+            widgetType: 'Heading',
             size: '2'
           }
         ]

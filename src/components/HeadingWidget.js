@@ -4,17 +4,21 @@ import {DELETE_WIDGET} from "../constants/WidgetConstants"
 import * as actions from '../actions/WidgetActions'
 
 
-const Heading = ({widget, preview, headingTextChanged, headingSizeChanged}) => {
+const Heading = ({widget, preview, headingTextChanged, headingSizeChanged,headingNameChanged}) => {
   let selectElem
-  let inputElem
+  let inputNameElem
+  let inputTextElem
   return(
     <div>
 
       <div hidden={preview}>
         <h2> Heading {widget.size}</h2>
-          <input onChange={() => headingTextChanged(widget.id, inputElem.value)}
+          <input onChange={() => headingTextChanged(widget.id, inputTextElem.value)}
                  value={widget.text}
-                 ref={node => inputElem = node}/>
+                 ref={node => inputTextElem = node}/>
+               <input onChange={() => headingNameChanged(widget.id, inputNameElem.value)}
+                        value={widget.name}
+                        ref={node => inputNameElem = node}/>
           <select onChange={() => headingSizeChanged(widget.id, selectElem.value)}
                   value={widget.size}
                   ref={node => selectElem = node}>
@@ -35,6 +39,8 @@ const Heading = ({widget, preview, headingTextChanged, headingSizeChanged}) => {
 const dispathToPropsMapper = dispatch => ({
   headingTextChanged: (widgetId, newText) =>
     actions.headingTextChanged(dispatch, widgetId, newText),
+    headingNameChanged: (widgetId, newName) =>
+      actions.headingNameChanged(dispatch, widgetId, newName),
   headingSizeChanged: (widgetId, newSize) =>
     actions.headingSizeChanged(dispatch, widgetId, newSize)
 })
