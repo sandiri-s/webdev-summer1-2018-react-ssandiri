@@ -13,6 +13,12 @@ export const headingSizeChanged = (dispatch, widgetId, newSize) => (
     size: newSize})
 )
 
+export const listTypeChanged = (dispatch, widgetId, newType) => (
+  dispatch({
+    type: constants.LIST_TYPE_CHANGED,
+    id: widgetId,
+    listType: newType})
+)
 
 export const nameChanged = (dispatch, widgetId, newName) => (
   dispatch({

@@ -30,6 +30,16 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
         })
       }
 
+      case constants.LIST_TYPE_CHANGED:
+        return {
+          widgets: state.widgets.map(widget => {
+            if(widget.id === action.id) {
+              widget.listType = action.listType
+            }
+            return Object.assign({}, widget)
+          })
+        }
+
       case constants.NAME_CHANGED:
         return {
           widgets: state.widgets.map(widget => {
@@ -84,7 +94,8 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
             text: 'New Widget',
             name: 'Widget Name',
             widgetType: 'Heading',
-            size: '2'
+            size: '2',
+            listType:'unordered'
           }
         ]
       }

@@ -4,6 +4,7 @@ import {DELETE_WIDGET} from "../constants/WidgetConstants"
 import * as actions from '../actions/WidgetActions'
 import HeadingContainer from './HeadingWidget'
 import ParagraphContainer from './ParagraphWidget'
+import ListContainer from './ListWidget'
 
 const Widget = ({widget, preview, dispatch}) => {
   let selectElement
@@ -32,7 +33,8 @@ const Widget = ({widget, preview, dispatch}) => {
       </div>
       <div>
         {widget.widgetType==='Heading' && <HeadingContainer widget={widget}/>}
-                {widget.widgetType==='Paragraph' && <ParagraphContainer widget={widget}/>}
+        {widget.widgetType==='Paragraph' && <ParagraphContainer widget={widget}/>}
+        {widget.widgetType==='List' && <ListContainer widget={widget}/>}
       </div>
     </li>
   )
