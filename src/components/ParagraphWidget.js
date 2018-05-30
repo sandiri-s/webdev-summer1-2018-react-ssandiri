@@ -10,19 +10,22 @@ const Paragraph = ({widget, preview, textChanged,nameChanged}) => {
   return(
     <div>
 
-      <div hidden={preview}>
+      <div hidden={preview} className="input-children">
+        <div className="widget-elements">
           <textarea onChange={() => textChanged(widget.id, inputElem.value)}
                  value={widget.text}
                  ref={node => inputElem = node}/>
+             </div>
+                     <div className="widget-elements">
                  <input onChange={() => nameChanged(widget.id, inputNameElem.value)}
                           value={widget.name}
                           ref={node => inputNameElem = node}/>
-
-                        <h4>Preview</h4>
+                      </div>
+                        <h5>Preview</h5>
 
       </div >
       <div>
-   <h1>{widget.text}</h1>
+   <p>{widget.text}</p>
    </div>
     </div>
   )

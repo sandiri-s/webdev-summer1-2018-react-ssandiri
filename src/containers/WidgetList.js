@@ -51,7 +51,7 @@ class WidgetList extends Component {
         </div>
 
 
-        <ul>
+        <ul id="widget-list">
           {this.props.widgets.map(widget => (
             <WidgetContainer widget={widget}
                              preview={this.props.previewMode}

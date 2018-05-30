@@ -36,22 +36,27 @@ class List extends React.Component {
   return(
     <div>
 
-      <div hidden={this.props.preview}>
+      <div hidden={this.props.preview} className="input-children">
+        <div className="widget-elements">
           <textarea onChange={() => this.props.textChanged(this.props.widget.id, inputElem.value)}
                  value={this.props.widget.text}
                  ref={node => inputElem = node}/>
+             </div>
+             <div className="widget-elements">
                  <input onChange={() => this.props.nameChanged(this.props.widget.id, inputNameElem.value)}
                           value={this.props.widget.name}
                           ref={node => inputNameElem = node}/>
+                      </div>
+                <div className="widget-elements">
                           <select onChange={() => this.props.listTypeChanged(this.props.widget.id, selectElem.value)}
                                   value={this.props.widget.listType}
                                   ref={node => selectElem = node}>
                             <option value="unordered">Unordered List</option>
                             <option value="ordered">Ordered List</option>
                           </select>
+                        </div>
 
-
-          <h4>Preview</h4>
+          <h5 className="widget-elements">Preview</h5>
 
       </div >
       <div>

@@ -11,15 +11,19 @@ const Image = ({widget, preview, srcChanged,nameChanged}) => {
   return(
     <div>
 
-      <div hidden={preview}>
+      <div hidden={preview} className="input-children">
+          <div className="widget-elements">
           <input onChange={() => srcChanged(widget.id, inputSrcElem.value)}
                  value={widget.src}
                  ref={node => inputSrcElem = node}/>
+             </div>
+            <div className="widget-elements">
                <input onChange={() => nameChanged(widget.id, inputNameElem.value)}
                         value={widget.name}
                         ref={node => inputNameElem = node}/>
+                    </div>
 
-                      <h4>Preview</h4>
+                      <h5 className="widget-elements">Preview</h5>
 
       </div>
       <img src={widget.src} alt="preview image" />

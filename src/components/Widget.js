@@ -11,7 +11,7 @@ import LinkContainer from './LinkWidget'
 const Widget = ({widget, preview, widgetLength, dispatch}) => {
   let selectElement
   return(
-    <li>
+    <li className="widget-list-item">
 
       <div id="row" className="row" hidden={preview}>
       <h3 className="col-6">

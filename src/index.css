@@ -96,7 +96,30 @@ margin-right:10px;
   overflow-x: auto;
 
 }
-ul {
+.widget-elements{
+
+margin-top: 10px;
+margin-bottom:10px;
+
+}
+
+.input-children * {
+
+  width:100%;
+}
+.widget-list-item{
+  margin: 15px;
+
+    border: 1px solid grey;
+      padding: 10px;
+
+}
+.list-group{
+
+
+  padding: 20px;
+}
+#widget-list {
   list-style-type: none;
   padding:0;
 }

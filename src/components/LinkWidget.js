@@ -12,19 +12,24 @@ const Link = ({widget, preview, hrefChanged,nameChanged,textChanged}) => {
   return(
     <div>
 
-      <div hidden={preview}>
+      <div hidden={preview} className="input-children">
+        <div className="widget-elements">
           <input onChange={() => hrefChanged(widget.id, inputHrefElem.value)}
                  value={widget.href}
                  ref={node => inputHrefElem = node}/>
+             </div>
+             <div className="widget-elements">
                  <input onChange={() => textChanged(widget.id, inputTextElem.value)}
                         value={widget.text}
                         ref={node => inputTextElem = node}/>
+                    </div>
+            <div className="widget-elements">
                <input onChange={() => nameChanged(widget.id, inputNameElem.value)}
                         value={widget.name}
                         ref={node => inputNameElem = node}/>
 
-
-                      <h4>Preview</h4>
+                    </div>
+                      <h5 className="widget-elements">Preview</h5>
 
       </div>
       <a href={widget.href}> {widget.text} </a>

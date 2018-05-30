@@ -11,13 +11,18 @@ const Heading = ({widget, preview, textChanged, headingSizeChanged,nameChanged})
   return(
     <div>
 
-      <div hidden={preview}>
-          <input onChange={() => textChanged(widget.id, inputTextElem.value)}
+      <div hidden={preview} className="input-children">
+        <div className="widget-elements">
+          <input  onChange={() => textChanged(widget.id, inputTextElem.value)}
                  value={widget.text}
                  ref={node => inputTextElem = node}/>
+             </div>
+             <div className="widget-elements">
                <input onChange={() => nameChanged(widget.id, inputNameElem.value)}
                         value={widget.name}
                         ref={node => inputNameElem = node}/>
+                    </div>
+          <div className="widget-elements">
           <select onChange={() => headingSizeChanged(widget.id, selectElem.value)}
                   value={widget.size}
                   ref={node => selectElem = node}>
@@ -25,8 +30,9 @@ const Heading = ({widget, preview, textChanged, headingSizeChanged,nameChanged})
             <option value="2">Heading 2</option>
             <option value="3">Heading 3</option>
           </select>
+        </div>
 
-          <h4>Preview</h4>
+          <h5 className="widget-elements">Preview</h5>
 
       </div>
       {widget.size == 1 && <h1>{widget.text}</h1>}
