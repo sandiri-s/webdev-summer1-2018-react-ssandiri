@@ -39,7 +39,7 @@ const Widget = ({widget, preview, widgetLength, dispatch}) => {
 
 
       <button onClick={e => (
-        dispatch({type: DELETE_WIDGET, order: widget.order})
+        dispatch({type: DELETE_WIDGET, id: widget.id})
       )}>Delete</button>
       </div>
       <div>
