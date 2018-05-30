@@ -1,6 +1,6 @@
 import React from 'react';
 import LessonTabs from './LessonTabs';
-import WidgetListContainer from './WidgetListEditor'
+import WidgetListEditor from './WidgetListEditor'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 export default class ModuleEditor
@@ -33,7 +33,7 @@ export default class ModuleEditor
 
         <div id="lesson-editor">
           <Route path="/lesson/:lessonId"
-                exact component={WidgetListContainer}>
+                exact component={WidgetListEditor}>
           </Route>
             </div>
 
