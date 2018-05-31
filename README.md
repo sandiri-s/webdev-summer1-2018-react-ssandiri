@@ -1,3 +1,9 @@
+
+To start the application follow the instructions below and then navigate to localhost:3000/courses 
+
+The server side code for this application can be found at https://github.com/sandiri-s/webdev-summer1-2018-java-server-ssandiri
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
