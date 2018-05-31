@@ -26,7 +26,7 @@ const Image = ({widget, preview, srcChanged,nameChanged}) => {
                       <h5 className="widget-elements">Preview</h5>
 
       </div>
-      <img src={widget.src} alt="preview image" />
+      <img src={widget.src} className="image-preview" alt="preview image" />
     </div>
   )
 }

@@ -92,6 +92,7 @@ export const WidgetReducer = (state = {widgets: [], preview: false}, action) => 
         headers: {
           'content-type': 'application/json'}
       })
+      alert("Saved Successfully")
 
 
       return state

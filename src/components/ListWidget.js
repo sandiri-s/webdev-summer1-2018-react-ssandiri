@@ -48,7 +48,7 @@ class List extends React.Component {
                                value={this.props.widget.listType}
                                ref={node => selectElem = node}>
                          <option value="unordered">Unordered List</option>
-                         <option value="ordered">Ordered List</option>
+                           <option value="ordered">Ordered List</option>
                        </select>
                      </div>
 
